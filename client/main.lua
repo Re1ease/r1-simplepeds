@@ -16,6 +16,9 @@ local function GeneratePed(coords, m, new)
 	SetEntityInvincible(npc, true)
 	SetBlockingOfNonTemporaryEvents(npc, true)
 	FreezeEntityPosition(npc, true)
+	if GetEntityCoords(npc).z > coords.z then
+		SetEntityCoords(npc, coords.x, coords.y, coords.z-0.0000001, 0, 0, 0, 0)
+	end
 	if new then return true end return false
 end
 
